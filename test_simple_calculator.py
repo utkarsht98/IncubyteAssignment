@@ -25,6 +25,12 @@ class TestAddition(unittest.TestCase):
 
     def test_with_more_than_two_numbers(self):
         self.assertEqual(self.calculator.Add("20,11,13"), 44)
+    
+    def test_new_line_delimiter_1(self):
+        self.assertEqual(self.calculator.Add('1\n2,3'), 6)
+
+    def test_new_line_delimiter_2(self):
+        self.assertEqual(self.calculator.Add("4\n1\n3,2,10,8\n6"), 34)
   
 if __name__ == '__main__':
     unittest.main()

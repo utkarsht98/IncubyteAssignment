@@ -1,3 +1,4 @@
+import re
 class SimpleCalculator:
     def __init__(self) -> None:
         self.inputStr = ""
@@ -14,7 +15,7 @@ class SimpleCalculator:
         if "," not in self.inputStr:
             return int(self.inputStr)
         else:
-            operands = self.inputStr.split(",")
+            operands = re.split(',|\n', self.inputStr)
             for i in range(len(operands)):
                 self.totalSum += int(operands[i])
             return self.totalSum
