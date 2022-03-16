@@ -14,6 +14,9 @@ class TestAddition(unittest.TestCase):
     # Returns True if the add method returns number for a stirng wtih one number.
     def test_strings_with_one_number(self):      
         self.assertEqual(self.calculator.Add("1"), 1)
+    
+    def test_strings_with_two_numbers(self):
+        self.assertEqual(self.calculator.Add("2,3"), 5)
   
 if __name__ == '__main__':
     unittest.main()

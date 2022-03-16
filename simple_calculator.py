@@ -4,7 +4,10 @@ class SimpleCalculator:
     
     def Add(self, inputString):
         self.inputStr = inputString
+
         if self.inputStr == "":
             return 0
-
+             
+        if len(inputString) == 1:
+            return int(inputString)
         
