@@ -1,6 +1,13 @@
-from mimetypes import init
 import re
 class SimpleCalculator:
+    """
+    Class which helps in performing mathematical operations on numbers.
+    Attributes:
+        inputStr (str): The input number in string format.
+        totalSum (int): Hold the final sum obtained addition operation.
+        operands (list): List of all the input numbers in integer form.
+    """
+    
     def __init__(self) -> None:
         self.inputStr = ""
         self.totalSum = 0
@@ -17,13 +24,11 @@ class SimpleCalculator:
         # Handled provided delimiter changes
         if self.inputStr[:2] == "//":
             self.operands = re.split(self.inputStr[2], self.inputStr[4:])
-            print('oeprandndsd==----', self.operands)
 
         elif len(self.inputStr.split(",")) == 1: # For single numbers
                 return int(self.inputStr)
         else:
             self.operands = re.split(',|\n', self.inputStr) # For two or more numbers with "," delimiter
-            print('\n delimiter', self.operands)
 
         try:
             for i in range(len(self.operands)):
