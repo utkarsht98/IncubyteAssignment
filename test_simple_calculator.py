@@ -30,10 +30,16 @@ class TestAddition(unittest.TestCase):
         self.assertEqual(self.calculator.Add('1\n2,3'), 6)
 
     def test_new_line_delimiter_2(self):
-        self.assertEqual(self.calculator.Add("4\n1\n3,2,10,8\n6"), 34)
+        self.assertEqual(self.calculator.Add("4\n1\n3,2,10,8\n6"), 34) #"-12,20\n3,-4\n-2,-8"
     
     def test_changing_delimiter_addition(self):
         self.assertEqual(self.calculator.Add("//;\n1;28;3;12;8;6"), 58)
+    
+    def test_negative_values_error(self):
+        self.assertEqual(self.calculator.Add("-12,20\n3,-4\n-2,-8"), "Negatives not allowed --->-12,-4,-2,-8")
+    
+    def test_negative_values_error_with_delimiter_change(self):
+        self.assertEqual(self.calculator.Add("//;\n-12;20;3;-4;-2;-8"), "Negatives not allowed --->-12,-4,-2,-8")
   
 if __name__ == '__main__':
     unittest.main()
