@@ -8,17 +8,24 @@ class SimpleCalculator:
     def Add(self, inputString):
         self.inputStr = inputString
 
-        print(self.inputStr)
+        # Handled empty string case
         if self.inputStr == "":
             return 0
-             
-        if "," not in self.inputStr:
-            return int(self.inputStr)
+        
+        # Handled provided delimiter changes
+        if self.inputStr[:2] == "//":
+            operands = re.split(self.inputStr[2], self.inputStr[4:])
+            print('oeprandndsd==----', operands)
+
+        elif len(self.inputStr.split(",")) == 1: # For single numbers
+                return int(self.inputStr)
         else:
-            operands = re.split(',|\n', self.inputStr)
-            for i in range(len(operands)):
-                self.totalSum += int(operands[i])
-            return self.totalSum
+            operands = re.split(',|\n', self.inputStr) # For two or more numbers with "," delimiter
+
+        for i in range(len(operands)):
+            self.totalSum += int(operands[i])
+
+        return self.totalSum
 
 # inputNumber = input("enter input:")
 # calculator = SimpleCalculator()

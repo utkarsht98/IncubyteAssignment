@@ -33,7 +33,7 @@ class TestAddition(unittest.TestCase):
         self.assertEqual(self.calculator.Add("4\n1\n3,2,10,8\n6"), 34)
     
     def test_changing_delimiter_addition(self):
-        self.assertEqual(self.calculator.Add("//;4\n1\n28;2;10;8\n6"), 58)
+        self.assertEqual(self.calculator.Add("//;\n1;28;3;12;8;6"), 58)
   
 if __name__ == '__main__':
     unittest.main()
